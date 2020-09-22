@@ -23,6 +23,7 @@ const Item = ({
   activateMe,
   reduxStoreName,
   reduxUid,
+  ...restProps
 }, {
   classStore,
   LinkComponent,
@@ -48,6 +49,7 @@ const Item = ({
       hasSubMenu={hasSubMenu}
       toggleSubMenu={toggleSubMenu}
       activateMe={activateMe}
+      {...restProps}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {label}

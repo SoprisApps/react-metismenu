@@ -4996,6 +4996,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -5014,13 +5016,16 @@ var _Container2 = _interopRequireDefault(_Container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * src/components/Container.jsx
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 16.09.2016
- */
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; } /**
+                                                                                                                                                                                                                              * src/components/Container.jsx
+                                                                                                                                                                                                                              * Author: H.Alper Tuna <halpertuna@gmail.com>
+                                                                                                                                                                                                                              * Date: 16.09.2016
+                                                                                                                                                                                                                              */
 
 var Item = function Item(_ref, _ref2) {
+  var classStore = _ref2.classStore,
+      LinkComponent = _ref2.LinkComponent;
+
   var id = _ref.id,
       icon = _ref.icon,
       label = _ref.label,
@@ -5033,9 +5038,9 @@ var Item = function Item(_ref, _ref2) {
       toggleSubMenu = _ref.toggleSubMenu,
       activateMe = _ref.activateMe,
       reduxStoreName = _ref.reduxStoreName,
-      reduxUid = _ref.reduxUid;
-  var classStore = _ref2.classStore,
-      LinkComponent = _ref2.LinkComponent;
+      reduxUid = _ref.reduxUid,
+      restProps = _objectWithoutProperties(_ref, ['id', 'icon', 'label', 'to', 'externalLink', 'hasSubMenu', 'active', 'hasActiveChild', 'subMenuVisibility', 'toggleSubMenu', 'activateMe', 'reduxStoreName', 'reduxUid']);
+
   return _react2.default.createElement(
     'li',
     {
@@ -5043,7 +5048,7 @@ var Item = function Item(_ref, _ref2) {
     },
     _react2.default.createElement(
       LinkComponent,
-      {
+      _extends({
         className: classStore.classLink,
         classNameActive: classStore.classLinkActive,
         classNameHasActiveChild: classStore.classLinkHasActiveChild,
@@ -5056,7 +5061,7 @@ var Item = function Item(_ref, _ref2) {
         hasSubMenu: hasSubMenu,
         toggleSubMenu: toggleSubMenu,
         activateMe: activateMe
-      },
+      }, restProps),
       _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       label,
       hasSubMenu && _react2.default.createElement('i', {

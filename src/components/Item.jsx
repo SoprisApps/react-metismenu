@@ -47,6 +47,7 @@ const Item = ({
       label={label}
       externalLink={externalLink}
       hasSubMenu={hasSubMenu}
+      subMenuVisibility={subMenuVisibility}
       toggleSubMenu={toggleSubMenu}
       activateMe={activateMe}
       {...restProps}
